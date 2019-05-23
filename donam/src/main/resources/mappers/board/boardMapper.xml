@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="board">
+	<!-- 게시판 조회수 많은 게시물 조회 -->
+	<select id="best_list" resultType="com.najin.donam.model.board.dto.BoardDTO">
+		select * from (
+		    select bno, writer, title, regDate, viewCnt, (select count(*) from reply where bno=b.bno) replyCnt, 
+		    (select user_level from member where user_nikname=b.writer) writer_level
+		    from freeBoard b
+		    where delYn = 'n' 
+		    order by viewCnt desc 
+		)
+		where rownum <![CDATA[<=]]>5 
+	</select>
+
+	<!-- 게시판 상위 게시물 조회  -->
+	<select id="top_list" resultType="com.najin.donam.model.board.dto.BoardDTO">
+		select * from (
+		    select bno, writer, title, regDate, viewCnt, (select count(*) from reply where bno=b.bno) replyCnt, 
+		    (select user_level from member where user_nikname=b.writer) writer_level
+		    from freeBoard b
+		    where delYn = 'n' 
+		    order by bno desc 
+		)
+		where rownum <![CDATA[<=]]>5 
+	</select>
+	
+	<!-- 게시판 리스트 조회 -->
+	<select id="list" resultType="com.najin.donam.model.board.dto.BoardDTO">
+		<include refid="paging_header" />
+		select bno, title, writer, (select user_level from member where user_nikname=b.writer) writer_level, 
+				regDate, viewCnt, (select count(*) from reply where bno=b.bno) replyCnt 
+		from freeBoard b, member m
+		<include refid="search" />
+		and delYn = 'n'
+		order by bno desc
+		<include refid="paging_footer" />
+	</select>
+	
+	<!-- 게시글 추가 -->
+	<insert id="insert">
+		insert into freeBoard (bno, title, content, writer, regTime) 
+		values ((select nvl(max(bno)+1,1) from freeBoard), #{title}, #{content}, #{writer}, to_char(sysdate, 'yyyy-mm-dd hh24:mi'))
+	</insert>
+	
+	<!-- 게시글 읽기  -->
+	<select id="read" resultType="com.najin.donam.model.board.dto.BoardDTO">
+		select bno, title, content, writer, (select user_level from member where user_nikname=b.writer) writer_level,
+				regDate, viewCnt, (select count(*) from reply where bno=b.bno) replyCnt, regTime 
+		from freeBoard b, member m 
+		where b.writer = m.user_nikname and bno = #{bno}
+	</select>
+	
+	<!-- 게시글 수정 --> 
+	<update id="update">
+		update freeBoard
+	    set
+	    title = #{title},
+	    content = #{content}
+	    where bno = #{bno}  
+	</update>
+ 
+	<!-- 게시글 삭제 -->
+	<update id="delete">
+		update freeBoard 
+	 	set 
+	 	delYn = 'y' 
+	 	where bno = #{bno}
+	</update>
+	
+	<!-- 조회수 증가처리  -->
+	<update id="increaseViewcnt">
+		update freeBoard 
+		set viewCnt = viewCnt + 1 
+		where bno=#{bno}
+	</update>
+	
+	<!-- 검색 옵션 -->
+	<sql id="search">
+		<choose>
+			<when test="search_option == 'all' ">
+				where b.writer = m.user_nikname  
+				and (title like '%'||#{keyword}||'%' 
+				or content like '%'||#{keyword}||'%' 
+				or writer like '%'||#{keyword}||'%' )
+			</when>
+			<otherwise>
+				where b.writer = m.user_nikname 
+				and ${search_option} like '%'||#{keyword}||'%'
+			</otherwise>
+		</choose>
+	</sql>
+	
+	<!-- 전체 레코드 갯수 -->
+	<select id="countArticle" resultType="int">
+		select count(*) 
+		from freeBoard b, member m 
+		<include refid="search" />
+	</select>
+	
+	<!-- 페이징처리 상단 모듈 -->
+	<sql id="paging_header">
+		select * 
+		from (
+			select rownum as rn, A.* 
+			from (
+	</sql>
+	
+	<!-- 페이징처리 하단 모듈 -->
+	<sql id="paging_footer">
+				) A
+			) where rn between #{start} and #{end}
+	</sql>
+</mapper>

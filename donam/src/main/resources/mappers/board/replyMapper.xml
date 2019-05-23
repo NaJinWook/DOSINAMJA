@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="reply">
+	<!-- 댓글 등록 -->
+	<insert id="insert">
+		insert into reply 
+		(rno, bno, reply_user, reply_text, regTime) values 
+		( (select nvl(max(rno)+1, 1) from reply), #{bno}, #{reply_user}, #{reply_text}, to_char(sysdate, 'yyyy-mm-dd hh24:mi') )
+	</insert>
+	
+	<!-- 댓글 목록 -->
+	<select id="list" resultType="com.najin.donam.model.board.dto.ReplyDTO">
+		select rno, bno, reply_user, reply_text, regTime, (select user_level from member where user_nikname=r.reply_user) reply_user_level 
+        from reply r, member m
+        where r.reply_user = m.user_nikname and bno=#{bno}
+		order by rno
+	</select>
+	
+	<!-- 댓글 갯수 조회 -->
+	<select id="count" resultType="int">
+		select count(*) from reply where bno=#{bno}
+	</select>
+	
+	<!-- 댓글 삭제 -->
+	<delete id="delete">
+		delete from reply 
+	 	where rno = #{rno}
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

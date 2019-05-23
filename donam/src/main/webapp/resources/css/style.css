@@ -1,0 +1,266 @@
+/********************큰 레이아웃***************/
+#header{
+  width: 100%;
+  height: 175px;
+  background-color: #252525;
+}
+#main{
+  background-color: #ededed;
+}
+#footer{
+  width: 100%;
+  height: 100px;
+  background-color: #252525;
+}
+.contents{
+  width: 70%;
+  height: 100%;
+  position: absolute;
+  left: 15%;
+}
+/*****************로고******************/
+#logo img{
+  width: 155px;
+  height: 112px;
+  position: absolute;
+  left: calc(50% - (155px / 2));
+  top: 20px;
+}
+
+/*****************기술 탭******************/
+.desc_section{
+  width: 25%;
+  height: 30px;
+  float: left;
+  margin-top: 145px;
+}
+.description{
+  background-color: black;
+  height: 100%;
+  width: 90%;
+  text-align: center;
+  color:white;
+  line-height: 30px;
+}
+
+/*****************메뉴바관련******************/
+#nav_title{
+  width: 100%;
+  height: 50px;
+  background-color: #f9f9f9;
+}
+#menu_bar{
+  height: 50px;
+  width: 70%;
+  float: left;
+}
+.menu{
+  height: 100%;
+  width: 25%;
+  float: left;
+  background-color: #f9f9f9;
+}
+.info{
+  height: 100%;
+  width: 50%;
+  line-height: 46px;
+  float: left;
+  text-align: center;
+  background-color: #ffffff;
+}
+.menu_login{
+  float: left;
+  height: 100%;
+}
+#id_img, #pwd_img{
+  width: 40px;
+  height: 40px;
+  padding-top: 5px;
+}
+#login_btn, #register_btn{
+  border: none;
+  color: #ffffff;
+  width: 90%;
+  height: 30px;
+  cursor: pointer;
+}
+.com{
+  float: left;
+  height: 100%;
+  width: 30%;
+  text-align: center;
+  line-height: 47px;
+  background-color: #ffffff;
+  color: #000000;
+  cursor: pointer;
+}
+/*****************메뉴바관련(로그인시)******************/
+.user_info{
+  height: 100%;
+  width: 40%;
+  line-height: 46px;
+  float: right;
+  text-align: center;
+  background-color: #333333;
+}
+.login_user{
+  float: left;
+  color: #ffffff;
+}
+#login_user_nikname{
+  font-weight: bold;
+  text-align: right;
+  height: 100%;
+  line-height: 48px;
+}
+#login_user_level {
+  color: yellow;
+  height: 100%;
+}
+#login_user_level img{
+  width: 25px;
+  height: 25px;
+  padding-top: 12px;
+}
+.user_option{
+  float: left;
+  width: 50%;
+}
+#info_btn, #logout_btn{
+  padding: 5px;
+  font-weight: bold;
+  border-radius: 2px 2px;
+  border: 1px solid #c6c6c6;
+  background-color: #f8f8f8;
+  color: #333333;
+  width: 80%;
+  cursor: pointer;
+}
+
+/*****************마이 페이지(내 정보) 버튼******************/
+#mod_commit{
+  background-color: #5BB75B;
+  color: #ffffff;
+  background-image: linear-gradient(to bottom, #62C462, #51A351);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  padding: 4px 12px;
+  border-radius: 4px 4px;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+}
+#mod_cancel{
+  background-color: #F5F5F5;
+  color: #333333;
+  background-image: linear-gradient(to bottom, #FFFFFF, #E6E6E6);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) #B3B3B3;
+  padding: 4px 12px;
+  border-radius: 4px 4px;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+}
+
+/*****************본문내용******************/
+#spon{
+  background-color: #ffffff;
+  width: 100%;
+  height: 125px;
+  margin-top: 25px;
+}
+#banner{
+  background-color: #ffffff;
+  width: 100%;
+  height: 125px;
+  margin-top: 25px;
+}
+.print{
+  background-color: #ffffff;
+  width: 100%;
+  margin-top: 75px;
+}
+/*****************홈화면******************/
+.view_section{
+  width: 100%;
+  height: 50%;
+}
+.view_section2{
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+.view_section3{
+  margin-left: 5%;
+  width: 90%;
+  height: 95%;
+}
+.main_title{
+  height: 10%;
+  border-bottom: 1px solid #ddd;
+  font-weight: bold;
+  line-height: 35px;
+  font-size: 18px;
+}
+.main_content{
+  height: calc(90% / 5);
+  border-bottom: 1px solid #ddd;
+  border-left: 3px solid; #252525;
+  border-right: 1px solid #ddd;
+}
+.view_content{
+  height: 50%;
+}
+#title_img{
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+}
+#title_name{
+  margin-left: 5px;
+}
+#view_title{
+  padding-left: 10px;
+  font-size: 16px;
+  line-height: 50px;
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+}
+#view_title a{
+  text-decoration: none;
+  color: black;
+}
+#view_regDate{
+  font-size: 13px;
+  text-align: right;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+/*****************본문내용(점검)******************/
+.checking{
+  text-align: center;
+  padding-top: 325px;
+}
+/*****************작성자 레벨******************/
+.writer_level{
+  width: 20px;
+  height: 16px;
+}
+/*****************사이트정보(footer)******************/
+.copyright{
+  float: left;
+  height: 100%;
+  width: 50%;
+  color: #ffffff;
+  font-weight: bold;
+  line-height: 100px;
+}
+.footer_section{
+  position: absolute;
+  left: 15%;
+  width: 70%;
+  height: 100px;
+  float: left;
+}

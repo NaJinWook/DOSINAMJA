@@ -1,0 +1,274 @@
+/*****************게시판 섹션 나누기******************/
+.freeBoard{
+  padding: 20px;
+  font-weight: bold;
+  color: crimson;
+  font-size: 20px;
+}
+.table{
+  width: 90%;
+  position: absolute;
+  left: 5%;
+  margin-top: 40px;
+}
+.bbs_title{
+  padding: 10px 0;
+  border-bottom: 2px solid grey;
+}
+.bbs_content{
+  padding: 10px 0;
+  border-bottom: 1px solid silver;
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+}
+.bbs_content a{
+  color: #333333;
+  text-decoration: none;
+}
+.thead{
+  font-weight: bold;
+  color: #333333;
+  font-size: 16px;
+  border-top: 3px solid #333333;
+}
+.tbody{
+  color: #333333;
+  font-size: 16px;
+  text-align: center;
+}
+/*****************글쓰기 버튼******************/
+#write{
+  float: right;
+  margin-right: 5%;
+  background-color: rgb(213, 7, 15);
+  border: 1px solid rgb(213, 7, 15);
+  border-radius: 3px 3px;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 5px;
+}
+/*****************검색 옵션******************/
+.search_section{
+  height: 100%;
+  float: left;
+}
+#sbox{
+  float: right;
+  height: 30px;
+  width: 120px;
+  border: 1px solid #999999;
+  border-radius: 4px 4px;
+}
+#search_keyword{
+  height: 20px;
+  width: 300px;
+  border: 1px solid #999999;
+  border-radius: 4px 4px;
+  padding: 5px;
+}
+#search_btn{
+  border: 1px solid #c6c6c6;
+  border-radius: 4px 4px;
+  background-color: #f8f8f8;
+  color: #333333;
+  width: 50px;
+  height: 28px;
+  margin-left: -5px;
+  cursor: pointer;
+}
+
+/*****************글 쓰기******************/
+#write_name{
+  background-color: #f5f5f5;
+  height: calc(5% - 30px);
+  min-height: 20px;
+  font-weight: bold;
+  padding: 30px;
+  margin-bottom: 20px;
+  border: 1px solid #e3e3e3;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+}
+#write_title{
+  height: 6%;
+  width: 100%;
+  padding-left: 5%;
+  padding-bottom: 20px;
+}
+#write_title label{
+  font-weight: bold;
+}
+#title{
+  width: 600px;
+  height: 20px;
+  border: 1px solid #999999;
+  border-radius: 4px 4px;
+  padding: 5px;
+}
+#write_content{
+  width: 90%;
+  margin: 0 auto;
+}
+#write_btn{
+  margin-top: 20px;
+  height: 7%;
+  width: 100%;
+  padding-top: 10px;
+  text-align: center;
+}
+#write_commit{
+  background-color: #5BB75B;
+  color: #ffffff;
+  background-image: linear-gradient(to bottom, #62C462, #51A351);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  padding: 4px 12px;
+  border-radius: 4px 4px;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+}
+#write_cancel{
+  background-color: #F5F5F5;
+  color: #333333;
+  background-image: linear-gradient(to bottom, #FFFFFF, #E6E6E6);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) #B3B3B3;
+  padding: 4px 12px;
+  border-radius: 4px 4px;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+}
+
+#update_commit{
+  background-color: #5BB75B;
+  color: #ffffff;
+  background-image: linear-gradient(to bottom, #62C462, #51A351);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  padding: 4px 12px;
+  border-radius: 4px 4px;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+}
+#update_cancel{
+  background-color: #F5F5F5;
+  color: #333333;
+  background-image: linear-gradient(to bottom, #FFFFFF, #E6E6E6);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) #B3B3B3;
+  padding: 4px 12px;
+  border-radius: 4px 4px;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+}
+
+.paging{
+  width:100%; 
+  height:9%; 
+  text-align:center;
+  margin-top:70px;	
+}
+.paging a{
+  color: #333333;
+  text-decoration: none;
+}
+.pg_btn{
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  width: 30px;
+  height: 30px;
+}
+/*****************글 읽기******************/
+#read_title{
+  background-color: #f5f5f5;
+  height: calc(5% - 30px);
+  min-height: 20px;
+  font-weight: bold;
+  padding: 30px;
+  border: 1px solid #e3e3e3;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+}
+#read_writer{
+  height: 20px;
+  text-align: right;
+  line-height: 20px;
+  padding: 10px;
+  font-weight: 600;
+  border-bottom: 1px solid #dbdbdb;
+}
+#read_info{
+  height: 30px;
+  text-align: right;
+  border-bottom: 1px solid #dbdbdb;
+}
+#read_info p{
+  padding: 0 10px;
+  float: right;
+  line-height: 30px;
+}
+#read_info span{
+  font-weight: bold;
+}
+#read_content{
+  padding: 30px;
+  font-size: 14px;
+}
+#edit{
+  height: 30px;
+  text-align: right;
+  padding-top: 5px;
+  padding-right: 5px;
+}
+/*****************댓글******************/
+.reply{
+  background-color: #dbdbdb;
+  height: 140px;
+}
+.reply_section{
+  float: left;
+  height: 100%;
+}
+#reply_text{
+  height: calc(50% + 15px);
+  width: 95%;
+  margin-left: 2%;
+  margin-top: 20px;
+  padding: 5px;
+}
+#guide_line{
+  background-color: #f5f5f5;
+  height: 25px;
+  border: 1px solid #e3e3e3;
+}
+#reply_print{
+  background-color:#eeeeee;
+}
+#reply_btn{
+  height: calc(50% + 20px);
+  width: 80%;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 23px;
+}
+/*****************댓글 리스트******************/
+#reply_user_nikname{
+  color: #7777DD;
+  border-top: 1px solid #AAA;
+  border-bottom: 1px dotted #CCC;
+  padding: 5px 0px 5px 5px;
+}
+#reply_user_content{
+  padding: 5px 0px 5px 5px;
+}
+#reply_delBtn{
+  background-color:#fff;
+  border-style: none;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
